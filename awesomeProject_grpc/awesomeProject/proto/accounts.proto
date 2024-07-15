@@ -1,0 +1,49 @@
+syntax = "proto3";
+
+package accounts;
+
+option go_package = "awesomeProject/proto;proto";
+
+service AccountService {
+  rpc CreateAccount(CreateAccountRequest) returns (CreateAccountResponse);
+  rpc GetAccount(GetAccountRequest) returns (GetAccountResponse);
+  rpc DeleteAccount(DeleteAccountRequest) returns (DeleteAccountResponse);
+  rpc ChangeBalance(ChangeBalanceRequest) returns (ChangeBalanceResponse);
+  rpc ChangeName(ChangeNameRequest) returns (ChangeNameResponse);
+}
+
+message CreateAccountRequest {
+  string name = 1;
+  int32 amount = 2;
+}
+
+message CreateAccountResponse {}
+
+message GetAccountRequest {
+  string name = 1;
+}
+
+message GetAccountResponse {
+  string name = 1;
+  int32 amount = 2;
+}
+
+message DeleteAccountRequest {
+  string name = 1;
+}
+
+message DeleteAccountResponse {}
+
+message ChangeNameRequest {
+  string old_name = 1;
+  string new_name = 2;
+}
+
+message ChangeNameResponse {}
+
+message ChangeBalanceRequest {
+  string name = 1;
+  int32 amount = 2;
+}
+
+message ChangeBalanceResponse {}
